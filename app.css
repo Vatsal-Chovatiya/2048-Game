@@ -28,6 +28,24 @@ hr {
   justify-content: center;
 }
 
+#new-game-button{
+  height: 40px;
+  width: 130px;
+  line-height: 42px;
+  margin: 20px auto;
+  font-size: 15px;
+  background-color: #8f7a66;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
 /* colorful tiles */
 
 .x2{
@@ -83,3 +101,23 @@ hr {
     color: white;
 }
 
+.tile.slide {
+  transition: all 0.3s ease-in-out;
+}
+
+#Score{
+   height: 40px;
+  width: 130px;
+  background-color: #8f7a66;
+  line-height: 42px;
+  margin: 20px auto;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
