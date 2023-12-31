@@ -3,9 +3,37 @@ var score = 0;
 var rows = 4;
 var columns = 4;
 
+//Starts the Game.
+
 window.onload = function () {
   setGame();
+
+  document
+    .getElementById("new-game-button")
+    .addEventListener("click", resetGame);
 };
+
+// Reset the Game when 'NewGame' button is fired.
+
+function resetGame() {
+  score = 0;
+  board = null;
+  // Clear the board element
+  let boardElement = document.querySelector("#board");
+  boardElement.innerHTML = "";
+  setGame();
+  // Update the score to zero
+  document.getElementById("score").innerText = score;
+}
+
+// When the game is over, it throws an alert.
+
+function gameIsOver() {
+  alert("Please restart the game");
+  resetGame();
+}
+
+//Creates the board
 
 function setGame() {
   board = [
@@ -30,10 +58,12 @@ function setGame() {
   setTwo();
 }
 
+//Checks if there is any empty tile in the board
+
 function hasEmptyTile() {
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
-      if (board[r][c] == 0) {
+      if (board[r][c] === 0) {
         return true;
       }
     }
@@ -41,14 +71,18 @@ function hasEmptyTile() {
   return false;
 }
 
+// Sets "two's" initially in the game and randomly generates two's in empty tile.
+
 function setTwo() {
   if (!hasEmptyTile()) {
+    gameIsOver();
     return;
   }
 
   let found = false;
   while (!found) {
     // random r,c
+
     let r = Math.floor(Math.random() * rows);
     let c = Math.floor(Math.random() * columns);
 
@@ -62,6 +96,8 @@ function setTwo() {
   }
 }
 
+// It updates the tile after merging.
+
 function updateTile(tile, num) {
   tile.innerText = "";
   tile.classList.value = ""; //clear the classList
@@ -74,6 +110,7 @@ function updateTile(tile, num) {
     } else {
       tile.classList.add("x8192");
     }
+    tile.classList.add("slide");
   }
 }
 
